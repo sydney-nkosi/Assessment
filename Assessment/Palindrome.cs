@@ -10,10 +10,44 @@ namespace Assessment
     {
         public void IsPalindrome()
         {
-            Console.WriteLine("Enter any word then press enter");
-            var word = Console.ReadLine().ToLower();
+            Console.WriteLine("Enter any word or number then press enter");
+            var input = Console.ReadLine();
 
-            if(!string.IsNullOrEmpty(word))
+            if(int.TryParse(input, out int number) )
+            {
+                IsPalindromeNumber(number);
+            }
+            else if(ContainsLetters(input))
+            {
+                IsPalindromeString(input);
+            }
+        }
+
+        private void IsPalindromeNumber(int number)
+        {
+            int reversed = int.Parse(ReverseString(number.ToString()));
+
+            if (number == reversed)
+                Console.WriteLine($"{number} is palindrome");
+            else
+                Console.WriteLine($"{number} is not palindrome");
+        }
+
+        private bool ContainsLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void IsPalindromeString(string word)
+        {
+            if (!string.IsNullOrEmpty(word))
             {
                 if (string.Equals(word, ReverseString(word), StringComparison.OrdinalIgnoreCase))
                     Console.WriteLine($"{word} is palindrome");
