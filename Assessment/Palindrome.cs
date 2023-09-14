@@ -21,6 +21,9 @@ namespace Assessment
             {
                 IsPalindromeString(input);
             }
+            else
+                Console.WriteLine("You did not do as told. Please try again.");
+
         }
 
         private void IsPalindromeNumber(int number)
@@ -28,9 +31,9 @@ namespace Assessment
             int reversed = int.Parse(ReverseString(number.ToString()));
 
             if (number == reversed)
-                Console.WriteLine($"{number} is palindrome");
+                Console.WriteLine($"Number {number} is palindrome.\n");
             else
-                Console.WriteLine($"{number} is not palindrome");
+                Console.WriteLine($"Number {number} is not palindrome.\n");
         }
 
         private bool ContainsLetters(string input)
@@ -47,17 +50,10 @@ namespace Assessment
 
         private void IsPalindromeString(string word)
         {
-            if (!string.IsNullOrEmpty(word))
-            {
-                if (string.Equals(word, ReverseString(word), StringComparison.OrdinalIgnoreCase))
-                    Console.WriteLine($"{word} is palindrome");
-                else
-                    Console.WriteLine($"{word} is palindrome");
-            }
+            if (string.Equals(word, ReverseString(word), StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine($"Word {word} is palindrome.\n");
             else
-            {
-                Console.WriteLine("You did not do as told. Please restart the app.");
-            }
+                Console.WriteLine($"Word {word} is not palindrome.\n");
         }
 
         private string ReverseString(string word)

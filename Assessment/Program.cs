@@ -4,8 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Palindrome palindrome = new Palindrome();
-            palindrome.IsPalindrome();
+            while (true)
+            {
+                Palindrome palindrome = new Palindrome();
+                palindrome.IsPalindrome();
+
+                PascalTriangle pascalTriangle = new PascalTriangle();
+                pascalTriangle.DrawPascalTraingle();
+            }
         }
     }
 }
